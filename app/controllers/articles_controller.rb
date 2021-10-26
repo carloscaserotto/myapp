@@ -11,6 +11,9 @@ class ArticlesController < ApplicationController
     def new
         @article = Article.new
     end
+    def edit
+        @article = Article.find(params[:id])
+    end
 
     def create
         #byebug
@@ -27,6 +30,20 @@ class ArticlesController < ApplicationController
         end
         #redirect_to articles_path #voy a la pagina Index article
     end
+
+    def update
+        #byebug
+        @article = Article.find(params[:id])
+        if @article.update(params.require(:article).permit(:title, :description))
+            flash[:notice] = "Article updated"
+            redirect_to @article
+        else
+            render 'edit'
+        end
+
+    end
+
+    
 
     
 
