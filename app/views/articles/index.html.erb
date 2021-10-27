@@ -5,7 +5,7 @@
         <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Actions</th>
+            <th colspan="3">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +15,7 @@
                 <th><%= article.description %></th>
                 <th><%= link_to 'Show', article_path(article.id) %></th>
                 <th><%= link_to 'Edit', edit_article_path(article.id) %></th>
-                <th><%= link_to 'Delete', article_path(article.id), method: :delete %></th>
+                <th><%= link_to 'Delete', article_path(article.id), method: :delete, data: { confirm: "Are your sure?"} %></th>
             </tr>
         <% end %>
     </tbody>
@@ -28,3 +28,5 @@
 <% @articles.each do |article| %>
 
 <% end %>
+
+<th><%= link_to 'Create a new article', new_article_path %></th> | <th><%= link_to 'Home', root_path %></th> | <th><%= link_to 'About', about_path %></th>
