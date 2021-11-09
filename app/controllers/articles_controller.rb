@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        byebug
+        #byebug
         #render plain: params[:article]
         #render plain: params[:article][:title]
         @article = Article.new(article_params)
